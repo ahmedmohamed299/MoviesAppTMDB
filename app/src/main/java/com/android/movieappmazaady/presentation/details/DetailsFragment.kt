@@ -38,7 +38,6 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
         setupToolbar()
         observeMovieDetails()
         
@@ -104,8 +103,6 @@ class DetailsFragment : Fragment() {
             tvRating.text = "${movie.voteAverage}/10"
             tvOverview.text = movie.overview
 
-            // Add genre chips
-
 
             // Set favorite button
             updateFavoriteIcon(movie.isFavorite)
@@ -115,19 +112,8 @@ class DetailsFragment : Fragment() {
         }
     }
 
-    private fun createGenreChip(genre: String): Chip {
-        return Chip(requireContext()).apply {
-            text = genre
-            isClickable = false
-            setTextColor(ContextCompat.getColor(context, R.color.white))
-            setChipBackgroundColorResource(R.color.purple_200)
-        }
-    }
 
-    private fun getGenreList(genreIds: List<Int>): List<String> {
 
-        return genreIds.map { "Genre $it" }
-    }
 
     private fun updateFavoriteIcon(isFavorite: Boolean) {
         binding.ivFavorite.setImageResource(

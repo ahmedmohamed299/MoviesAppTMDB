@@ -56,10 +56,7 @@ class MovieAdapter(
                     // Update the UI immediately
                     val newFavoriteState = !movie.isFavorite
                     updateFavoriteIcon(newFavoriteState)
-                    
-                    // Create a new movie instance with updated favorite status
-                    val updatedMovie = movie.copy(isFavorite = newFavoriteState)
-                    
+
                     // Notify the repository to update the database
                     onFavoriteClick(movie)
                 }

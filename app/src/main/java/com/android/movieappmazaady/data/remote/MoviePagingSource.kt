@@ -3,6 +3,7 @@ package com.android.movieappmazaady.data.remote
 import androidx.paging.PagingConfig
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.android.movieappmazaady.BuildConfig
 import com.android.movieappmazaady.data.local.MovieDao
 import com.android.movieappmazaady.data.model.Movie
 import com.android.movieappmazaady.util.NetworkUtils
@@ -16,11 +17,12 @@ class MoviePagingSource(
 ) : PagingSource<Int, Movie>() {
 
     companion object {
-        const val API_KEY = "ad7b6dbe2cd8c3b637d59a7ac1677960"
+        const val API_KEY = BuildConfig.TMDB_API_KEY
         const val PAGE_SIZE = 20
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
+
         val page = params.key ?: 1
         
         return try {
