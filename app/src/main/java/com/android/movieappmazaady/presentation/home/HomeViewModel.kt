@@ -49,8 +49,8 @@ class HomeViewModel @Inject constructor(
 
     private fun observeFavoriteChanges() {
         viewModelScope.launch {
-            repository.favoriteStatusChanged.collect { movieId ->
-                _moviesList.value?.let { currentPagingData ->
+            repository.favoriteStatusChanged.collect {
+                _moviesList.value?.let {
                     getMovies()
                 }
             }
